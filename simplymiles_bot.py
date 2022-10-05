@@ -2,9 +2,6 @@ from selenium import webdriver
 from time import sleep
 from getpass import getpass
 
-option = webdriver.ChromeOptions()
-option.add_argument('--disable-blink-features=AutomationControlled')
-
 class CardOfferBot():
     
     # Open an intance of Chrome & navigate to SimplyMiles Webpage
