@@ -53,5 +53,5 @@ class CardOfferBot():
 
 bot = CardOfferBot()
 bot.open_simplymiles()
-bot.simplymiles_login()
-bot.simplymiles_offerselect()
+#bot.simplymiles_login()
+#bot.simplymiles_offerselect()
