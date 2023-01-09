@@ -4,7 +4,7 @@ from getpass import getpass
 
 
 class CardOfferBot():
-
+    
     # Open an intance of Chrome & navigate to SimplyMiles Webpage
 
     def __init__(self):
@@ -21,27 +21,26 @@ class CardOfferBot():
         login_link = self.driver.find_element(
             'xpath', '/html/body/header/div/nav[1]/div/a[1]')
         login_link.click()
+        
+        sleep(1)
+    
+    def simplymiles_loginid_locate(self):
+        
+        # Get login credentials
+
+        user = input("AAdvantage# or Username: ")
+        password = getpass("Password: ")
 
         # Locate login boxes
 
         user_field = self.driver.find_element(
-            'xpath', '/html/body/main/section/div/div/form/div[1]/div[1]/label/input')
-        last_name_field = self.driver.find_element(
-            'xpath', '/html/body/main/section/div/div/form/div[1]/div[2]/label/input')
+            'xpath', '//*[@id="username-text"]')
         pass_field = self.driver.find_element(
-            'xpath', '/html/body/main/section/div/div/form/div[1]/div[3]/label/input')
+            'xpath', '//*[@id="password-password"]')
         login_button = self.driver.find_element(
-            'xpath', '/html/body/main/section/div/div/form/div[2]/div/button')
-
-        # Get login credentials
-
-        user = input("AAdvantage# or Username: ")
-        last_name = input("Last Name: ")
-        password = getpass("Password: ")
+            'xpath', '//*[@id="button_login"]')
 
         user_field.send_keys(user)
-        sleep(2)
-        last_name_field.send_keys(last_name)
         sleep(2)
         pass_field.send_keys(password)
         sleep(4)
@@ -50,8 +49,8 @@ class CardOfferBot():
     def simplymiles_offerselect(self):
         pass
 
-
 bot = CardOfferBot()
 bot.open_simplymiles()
-#bot.simplymiles_login()
-#bot.simplymiles_offerselect()
+bot.simplymiles_login()
+bot.simplymiles_loginid_locate()
+# bot.simplymiles_offerselect()
