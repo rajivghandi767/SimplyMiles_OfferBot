@@ -35,15 +35,19 @@ class CardOfferBot():
 
         user_field = self.driver.find_element(
             'xpath', '//*[@id="username-text"]')
+        user_field.clear()
+        
         pass_field = self.driver.find_element(
             'xpath', '//*[@id="password-password"]')
+        pass_field.clear()
+        
         login_button = self.driver.find_element(
             'xpath', '//*[@id="button_login"]')
 
         user_field.send_keys(user)
         sleep(2)
         pass_field.send_keys(password)
-        sleep(4)
+        sleep(2)
         login_button.click()
 
     def simplymiles_offerselect(self):
@@ -53,4 +57,4 @@ bot = CardOfferBot()
 bot.open_simplymiles()
 bot.simplymiles_login()
 bot.simplymiles_loginid_locate()
-# bot.simplymiles_offerselect()
+bot.simplymiles_offerselect()
